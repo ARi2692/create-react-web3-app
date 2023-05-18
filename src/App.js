@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Landing from "./pages/Landing";
+
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  getDefaultWallets,
+  darkTheme,
+  RainbowKitProvider,
+} from "@rainbow-me/rainbowkit";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  polygonMumbai,
+} from "wagmi/chains";
+
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+
+const { chains, publicClient } = configureChains(
+  [mainnet, polygon, optimism, arbitrum, polygonMumbai],
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+);
+const { connectors } = getDefaultWallets({
+  appName: "My RainbowKit App",
+  chains,
+});
+const config = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <WagmiConfig config={config}>
+        <RainbowKitProvider
+          coolMode
+          chains={chains}
+          theme={darkTheme({
+            accentColor: "#04807b",
+            accentColorForeground: "white",
+            borderRadius: "medium",
+          })}
         >
-          Learn React
-        </a>
-      </header>
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
+          </Routes>
+        </RainbowKitProvider>
+      </WagmiConfig>
     </div>
   );
 }
