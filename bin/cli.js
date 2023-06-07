@@ -18,12 +18,12 @@ const installDepsCommand = `cd ${repoName} && npm install`;
 console.log(`cloning the repository with name ${repoName}`);
 
 const checkedOut = runCommand(gitCheckoutCommand);
-if (!checkedOut) process.exit(code -1);
+if (!checkedOut) process.exit(-1);
 
-console.log(`Installing dependecies for ${repoName}`);
+console.log(`Installing dependencies for ${repoName}`);
 const installedDeps = runCommand(installDepsCommand);
 
-if(!installedDeps) process.exit(code -1);
+if(!installedDeps) process.exit(-1);
 
 console.log("Congratulations! You are ready. Follow the following commands to start");
 console.log(`cd ${repoName} && npm start`)
