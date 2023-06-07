@@ -5,7 +5,7 @@ This is a NPM create react app for web3.
 Installation
 You can install this package via npm. Run the following command:
 
-npm install create-react-web3-app
+npm install @ari2692/create-react-web3-app
 
 Usage
 
