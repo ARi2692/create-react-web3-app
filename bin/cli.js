@@ -2,6 +2,8 @@
 const { execSync } = require('child_process');
 const process = require('process');
 
+const repoName = process.argv[2];
+
 const runCommand = command => {
     try {
         execSync(`${command}`, {stdio: 'inherit'});
@@ -11,8 +13,6 @@ const runCommand = command => {
     }
     return true;
 }
-
-const repoName = process.argv[2];
 
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/ARi2692/create-react-web3-app.git ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
