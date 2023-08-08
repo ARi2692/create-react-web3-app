@@ -76,7 +76,7 @@ my-app
 ```
 
 No configuration or complicated folder structures, only the files you need to build your app.
-Add your contracts in the designated "contracts" folder and adhere to the instructions outlined in the README.md within the contract directory [#Sample-Hardhat-Project].<br>
+Add your contracts in the designated "contracts" folder and adhere to the instructions outlined in the README.md within the contract directory.<br>
 Once the installation is done, you can open your project folder:
 
 ```sh
