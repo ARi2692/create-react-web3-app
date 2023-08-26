@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Landing from "./pages/Landing";
 
-import '@rainbow-me/rainbowkit/styles.css';
+import "@rainbow-me/rainbowkit/styles.css";
 import {
   getDefaultWallets,
   darkTheme,
@@ -20,17 +20,20 @@ import {
   polygonMumbai,
 } from "wagmi/chains";
 
-import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, polygonMumbai],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+  [publicProvider()]
 );
+
+const projectId = "YOUR_PROJECT_ID";
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
+  projectId,
   chains,
 });
+
 const config = createConfig({
   autoConnect: true,
   connectors,

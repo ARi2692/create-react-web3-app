@@ -66,7 +66,7 @@ my-app
 │   └── manifest.json
 └── src
     ├── App.css
-    ├── App.js
+    ├── App.jsx
     ├── App.test.js
     ├── index.css
     ├── index.js
@@ -82,6 +82,23 @@ Once the installation is done, you can open your project folder:
 ```sh
 cd my-app
 ```
+
+### Before we move ahead with the next steps, it's important to ensure that the PROJECT_ID is configured accurately. 
+
+Here's a straightforward guide to follow:
+
+    Begin by launching your preferred web browser and navigating to 
+    [https://cloud.walletconnect.com/sign-in]. Once there, log in and initiate the creation of a new project. This will provide you with the essential PROJECT_ID.
+
+    Now, delve into your project files and locate the src folder. Within this folder, pinpoint the app.jsx file.
+
+    Open the app.jsx file using the code editor you're most comfortable with.
+
+    Within the app.jsx file, keep an eye out for the specific section designated for inserting the YOUR_PROJECT_ID. It's in this spot that you'll be inserting the distinctive PROJECT_ID you acquired earlier. This ID plays a critical role in facilitating connections and ensuring authentication through the WalletConnect service.
+
+    Once you've seamlessly integrated your PROJECT_ID in place of "YOUR_PROJECT_ID", make sure to save the app.jsx file.
+
+    By successfully carrying out these steps, we'll be fully equipped on the project setup front.
 
 Inside the newly created project, you can run some built-in commands:
 
